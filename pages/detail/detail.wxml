@@ -1,0 +1,129 @@
+<!--detail.wxml-->
+<view class="container">
+  <view class="art-content head-title">
+    标题:{{title}}
+    <text wx:if="{{open}}">(公开)</text>
+  </view>
+  <view class="art-content placeholder">
+    描述:{{description}}
+  </view>
+  <view class="user-content placeholder">
+    投票发起人:
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  </view>
+  <view class="art-content placeholder">
+    开始时间:{{startTime}}
+  </view>
+  <view class="art-content placeholder">
+    截止时间:{{endTime}}
+  </view>
+  <view class="art-content placeholder">
+    (备注:投票结果于投票后可见)
+  </view>
+
+  <!-- 投票前 -->
+  <view class="btn-area full-width" wx:if="{{status < 0}}">
+    <checkbox-group bindchange="checkboxChange">
+      <label class="weui-cell weui-check__label" wx:for="{{checkboxItems}}" wx:key="value">
+        <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+
+        <view class="weui-cell__hd weui-check__hd_in-checkbox">
+          <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+          <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+        </view>
+        <view class="weui-cell__bd">{{item.name}}</view>
+      </label>
+    </checkbox-group>
+    <view class="weui-cells__title">投票还未开始，请关注...</view>
+    <view class="btn-area" wx:if="{{isPublisher}}">
+    <button class='weui-btn' type="primary">编辑</button>
+    <button class='weui-btn btn-margin' type="warn">删除</button>
+    </view>
+    
+  </view>
+
+
+  <!-- 投票中 -->
+  <view class="weui-cells weui-cells_after-title full-width" wx:if="{{status == 0}}">
+    <checkbox-group bindchange="checkboxChange">
+      <label class="weui-cell weui-check__label" wx:for="{{checkboxItems}}" wx:key="value">
+        <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+
+        <view class="weui-cell__hd weui-check__hd_in-checkbox">
+          <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+          <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+        </view>
+        <view class="weui-cell__bd">{{item.name}}</view>
+      </label>
+    </checkbox-group>
+
+    <view class="weui-cells weui-cells_after-title" wx:if="{{anonymous}}">
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">匿名投票</view>
+        <view class="weui-cell__ft">
+          <switch unchecked />
+        </view>
+      </view>
+    </view>
+
+    <view class="btn-area">
+      <button class='weui-btn' type="primary">投票</button>
+    </view>
+
+  </view>
+  <!-- 投票后 -->
+  <view class="full-width" wx:if="{{status > 0}}">
+
+    <view class="art-content placeholder">
+      苹果
+    </view>
+    <view class="page__bd page__bd_spacing padding-row">
+      <view class="weui-progress">
+        <view class="weui-progress__bar">
+          <progress percent="20" stroke-width="3" />
+        </view>
+        <text>20</text>
+      </view>
+    </view>
+
+    <view class="art-content placeholder">
+      香蕉
+    </view>
+    <view class="page__bd page__bd_spacing padding-row">
+      <view class="weui-progress">
+        <view class="weui-progress__bar">
+          <progress percent="50" stroke-width="3" />
+        </view>
+        <text>50</text>
+      </view>
+    </view>
+
+    <view class="art-content placeholder">
+      减肥
+    </view>
+    <view class="page__bd page__bd_spacing padding-row">
+      <view class="weui-progress">
+        <view class="weui-progress__bar">
+          <progress percent="30" stroke-width="3" />
+        </view>
+        <text>30</text>
+      </view>
+    </view>
+
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="art-content placeholder">已有{{persons}}人参与投票</view>
+      </view>
+      <view class="weui-flex__item" wx-if="{{isPublisher}}">
+        <view class="art-content placeholder margin-end">
+          <navigator url="../detailList/detailList">查看全部></navigator>
+
+        </view>
+      </view>
+    </view>
+
+
+  </view>
+
+
+</view>

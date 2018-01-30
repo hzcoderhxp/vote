@@ -1,0 +1,44 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/my/my",
+    "pages/detail/detail",
+    "pages/publish/publish",
+    "pages/subscare/subscare",
+    "pages/vote/vote",
+    "pages/detailList/detailList",
+    "pages/userList/userList",
+    "pages/feedback/feedback"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#00a2ea",
+    "navigationBarTitleText": "投票管家",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#353535",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
+      "text": "投票列表"
+    },{
+      "pagePath": "pages/vote/vote",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
+      "text": "创建投票"
+    }, {
+      "pagePath": "pages/my/my",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
+      "text": "用户中心"
+    }]
+  },
+  "networkTimeout": {
+    "request": 120000
+  }
+}

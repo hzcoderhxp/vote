@@ -1,0 +1,13 @@
+<view class="container">
+
+    <block wx:for="{{list}}" wx:for-index="id">
+      <view class="weui-cells weui-cells_after-title room-width line-font">
+    <navigator url="../userList/userList" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">{{item.selector}}({{item.numbers}})条</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+</view>
+
+    </block>
+    
+</view>

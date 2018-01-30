@@ -1,0 +1,7 @@
+.room-width{
+  width:100%;
+}
+
+.line-font{
+  font-size:14px;
+}

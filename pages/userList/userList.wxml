@@ -1,0 +1,14 @@
+<view class="container container-padding">
+  <block wx:for="{{list}}" wx:for-index="id">
+    <view class="weui-cell room-width line-font">
+      <view class="weui-cell__hd">
+        <image src="{{userInfo.avatarUrl}}" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;"></image>
+      </view>
+      <view class="weui-cell__bd">{{item.nickName}}</view>
+      <view class="weui-cell__ft">{{item.addTime}}</view>
+    </view>
+
+  </block>
+
+
+</view>

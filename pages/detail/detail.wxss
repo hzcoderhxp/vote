@@ -1,0 +1,70 @@
+.art-header{
+    position: relative;
+    width: 100%;
+    height: 219px;
+    color: #FFF;
+}
+
+.userinfo-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.art-img{
+    width: 100%;
+    height: 219px;
+}
+
+.art-title{
+    position: absolute;
+    bottom: 36px;
+    left: 8px;
+    font-size: 16px;
+}
+
+.art-source {
+    position: absolute;
+    bottom: 8px;
+    font-size: 14px;
+    right: 8px;   
+}
+
+.art-content{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left:20px;
+    font-size: 12px;
+    color: #616466;
+    width: 100%;
+}
+
+.user-content{
+    display: flex;
+    align-items: center;
+    padding-left:20px;
+    font-size: 12px;
+    color: #616466;
+    width: 100%;
+}
+
+.head-title{
+  font-size: 16px;
+}
+
+.full-width{
+  width:100%;
+}
+
+.padding-row{
+  padding-right:30px;
+}
+
+.margin-end{
+  margin-left:60px;
+}
+
+.btn-margin{
+  margin-top:0px;
+}
