@@ -1,13 +1,13 @@
 <!--index.wxml-->
 
-<import src="/wxSearch/wxSearch.wxml" />
-  <view class="wxSearch-section">
-    <view class="wxSearch-pancel line-font">
-      <input bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input" placeholder="投票标题" />
-      <button class="wxSearch-button" bindtap="wxSearchFn" size="mini" plain="true">搜索</button>
-    </view>
-  </view>
-  <template is="wxSearch" data="{{wxSearchData}}" />
+<import src="/wxSearch/wxSearch.wxml"/>
+<view class="wxSearch-section">
+<view class="wxSearch-pancel">
+<input bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input line-font" placeholder="投票标题" />
+<button class="wxSearch-button" bindtap="wxSearchFn" size="mini" plain="true">搜索</button>
+</view>
+</view>
+<template is="wxSearch" data="{{wxSearchData}}"/>
 
 <view class="container">
   
@@ -22,7 +22,7 @@
   </swiper>-->
   <view class="news-item-container">
     <block wx:for="{{list}}" wx:for-index="id">
-      <text wx:if="{{item.header}}" class="sub-title">{{item.header}}</text>
+      <text wx:if="{{item.header}}" class="sub-title">{{item.title}}</text>
       <navigator wx:else url="../detail/detail?id={{item.id}}">
         <view class="news-item">
           <view class="news-item-left">

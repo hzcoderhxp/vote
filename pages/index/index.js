@@ -4,6 +4,7 @@ var app = getApp()
 var utils = require('../../utils/util.js')
 Page({
   data: {
+    inputVal:'',
     homeImg:"../../images/logo.png",
     list: [],
     duration: 2000,
@@ -24,8 +25,9 @@ Page({
     var date = this.getNextDate()
     var that = this
     that.setData({ loading: true })
+    console.log(Number(utils.formatDate(date)) + 1);
     wx.request({
-      url: 'http://news.at.zhihu.com/api/4/news/before/' + (Number(utils.formatDate(date)) + 1),
+      url: 'http://vote.imbird.cn/vote/latest/' + (Number(utils.formatDate(date)) + 1),
       headers: {
         'Content-Type': 'application/json'
       },
@@ -39,7 +41,21 @@ Page({
   },
 
 
+  wxSearchFn: function(e){
+    //let index = event.currentTarget.dataset.itemId;
+    console.log(this.data.inputVal);
+    //console.log(this.data.inputVal);
+    //console.log(e);
+  },
 
+  wxSearchInput: function(e){
+    let that = this;
+    //console.log(e);
+    this.setDate({
+      inputVal:e.detail.value
+    });
+    console.log(this.data.inputVal);
+  },
 
 
 
@@ -51,15 +67,17 @@ Page({
   onLoad: function () {
     var that = this
     wx.request({
-      url: 'http://news-at.zhihu.com/api/4/news/latest',
+      //url: 'http://news-at.zhihu.com/api/4/news/latest',
+      url: 'http://vote.imbird.cn/vote/latest/20180131',
       headers: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
+        console.log(res)
          that.setData({
-           banner: res.data.top_stories,
-           //list: [{ header: '今日房间' }].concat(res.data.stories)
-           list: res.data.stories
+           //banner: res.data.top_stories,           
+           //list: res.data.stories
+           list: res.data
          })
       }
     })

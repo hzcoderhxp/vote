@@ -24,6 +24,20 @@ Page( {
     })
   },
 
+  onLoad: function () {
+    var that = this
+    wx.request({
+      url: 'http://127.0.0.1:8810/feedback/test',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log("=========vote.imbird.cn response==========");
+        console.log(res.data);
+      }
+    })
+  }
+
   // onReady: function () {
   //   wx.setNavigationBarTitle({
   //     title: '投票管家'
